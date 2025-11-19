@@ -128,10 +128,6 @@
             .links-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .mobile-order-1 { order: 1; }
-            .mobile-order-2 { order: 2; }
-            .mobile-order-3 { order: 3; }
         }
         
         /* Tablet */
@@ -145,11 +141,6 @@
         @media (min-width: 992px) {
             .links-grid {
                 grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .sticky-sidebar {
-                position: sticky;
-                top: 20px;
             }
         }
     </style>
@@ -194,9 +185,9 @@
 <!-- Main Content -->
 <main class="container my-4 flex-grow-1">
     <div class="row g-4">
-        <!-- Таблица - занимает всю ширину на мобильных, 2/3 на десктопе -->
-        <section id="table" class="col-12 col-lg-8 mobile-order-1">
-            <div class="section-card p-4 h-100">
+        <!-- Таблица - занимает всю ширину -->
+        <section id="table" class="col-12">
+            <div class="section-card p-4">
                 <h2 class="section-title ps-3 mb-4">Сравнение автомобилей</h2>
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover">
@@ -221,9 +212,9 @@
             </div>
         </section>
 
-        <!-- Ссылки - занимает всю ширину на мобильных, 1/3 на десктопе -->
-        <section id="links" class="col-12 col-lg-4 mobile-order-2">
-            <div class="section-card p-4 h-100 sticky-sidebar">
+        <!-- Ссылки - занимает всю ширину под таблицей -->
+        <section id="links" class="col-12">
+            <div class="section-card p-4">
                 <h2 class="section-title ps-3 mb-4">Полезные ссылки</h2>
                 <div class="links-grid">
                     <div class="link-item p-3">
@@ -264,7 +255,7 @@
                              onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/1e3a8a/ffffff?text=Mercedes-Benz'">
                         <map name="image-map">
                             <area target="_blank" href="https://www.kubsu.ru/ru/sveden" coords="29,36,305,320" shape="rect">
-                            <area target="_blank" href="https://www.kubsu.ru/ru/node/21" coords="453,176,126" shape="circle">
+                            <area target="_blank" href="https://www.kubsu.ru/ru/node-21" coords="453,176,126" shape="circle">
                         </map>
                     </div>
                     <div class="link-item p-3">
@@ -290,8 +281,8 @@
             </div>
         </section>
 
-        <!-- Форма - занимает всю ширину -->
-        <section id="form" class="col-12 mobile-order-3">
+        <!-- Форма - занимает всю ширину под ссылками -->
+        <section id="form" class="col-12">
             <div class="section-card p-4">
                 <h2 class="section-title ps-3 mb-4">Форма обратной связи</h2>
                 <div class="form-section p-4">
