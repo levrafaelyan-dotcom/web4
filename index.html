@@ -1,346 +1,501 @@
-/* Mobile First стили */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автомобильный каталог</title>
+    <style>
+        /* Mobile First стили */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-.app {
-  font-family: Arial, sans-serif;
-  background: #f3f4f6;
-  color: #222;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  line-height: 1.6;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            color: #222;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
 
-/* Шапка - 100% ширины */
-.header {
-  background: #1e40af;
-  color: white;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
+        /* Шапка */
+        header {
+            background: #1e40af;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  margin-right: 10px;
-  background: white;
-  color: #1e40af;
-  padding: 5px 10px;
-  border-radius: 4px;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 10px;
+            background: white;
+            color: #1e40af;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
 
-.site-name {
-  font-size: 18px;
-  font-weight: bold;
-}
+        .site-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-/* Навигация - вертикальный список на мобильных */
-.nav {
-  background: #1e3a8a;
-  width: 100%;
-}
+        /* Навигация - вертикальный список на мобильных */
+        nav {
+            background: #1e3a8a;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-.nav-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
 
-.nav-list li {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  width: 100%;
-}
+        nav li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-.nav-list a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  padding: 12px 15px;
-  width: 100%;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 12px 15px;
+            transition: 0.3s;
+        }
+        
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
 
-/* Контент - 100% ширины */
-.container {
-  flex: 1;
-  padding: 15px;
-  width: 100%;
-}
+        /* Контент */
+        .container {
+            flex: 1;
+            padding: 15px;
+        }
 
-section {
-  background: white;
-  border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 20px;
-  width: 100%;
-}
+        section {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-h2 {
-  border-left: 4px solid #2563eb;
-  padding-left: 10px;
-  margin-bottom: 15px;
-  color: #1e3a8a;
-}
+        h2 {
+            border-left: 4px solid #2563eb;
+            padding-left: 10px;
+            margin-bottom: 15px;
+            color: #1e3a8a;
+        }
 
-/* Таблица */
-.table-container {
-  overflow-x: auto;
-  margin-top: 15px;
-}
+        /* Таблица */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 15px;
+        }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 600px;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
 
-thead {
-  background: #1e40af;
-  color: white;
-}
+        thead {
+            background: #1e40af;
+            color: white;
+        }
 
-th, td {
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: center;
-}
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
 
-tr:nth-child(even) {
-  background: #f1f5f9;
-}
+        tr:nth-child(even) {
+            background: #f1f5f9;
+        }
 
-/* Список ссылок */
-.links-list {
-  list-style: none;
-}
+        /* Список ссылок */
+        .links-list {
+            list-style: none;
+        }
 
-.links-list li {
-  margin: 12px 0;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #eee;
-}
+        .links-list li {
+            margin: 12px 0;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
 
-.links-list li:last-child {
-  border-bottom: none;
-}
+        .links-list li:last-child {
+            border-bottom: none;
+        }
 
-.links-list a {
-  color: #1e40af;
-  text-decoration: none;
-}
+        .links-list a {
+            color: #1e40af;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .links-list a:hover {
+            color: #1e3a8a;
+            text-decoration: underline;
+        }
 
-.links-list img {
-  border-radius: 8px;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 10px 0;
-  border: 2px solid #e2e8f0;
-}
+        .links-list img {
+            border-radius: 8px;
+            transition: 0.3s;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px 0;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .links-list img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
 
-.image-map-container {
-  overflow-x: auto;
-}
+        .image-map-container {
+            overflow-x: auto;
+        }
 
-.image-map-container img {
-  max-width: none;
-}
+        .image-map-container img {
+            max-width: none;
+        }
 
-/* Форма */
-form {
-  margin-top: 20px;
-  padding: 15px;
-  background: #f8fafc;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
+        /* Форма */
+        form {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
 
-form label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-}
+        form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
 
-form input, form select, form textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0 15px;
-  border-radius: 5px;
-  border: 1px solid #aaa;
-  font-size: 16px;
-}
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border-radius: 5px;
+            border: 1px solid #aaa;
+            font-size: 16px;
+        }
 
-input[type="radio"], input[type="checkbox"] {
-  width: auto;
-  margin-right: 5px;
-}
+        input[type="radio"], input[type="checkbox"] {
+            width: auto;
+            margin-right: 5px;
+        }
 
-.radio-group, .checkbox-group {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-}
+        .radio-group, .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
 
-.radio-group label, .checkbox-group label {
-  margin-top: 0;
-  font-weight: normal;
-}
+        .radio-group label, .checkbox-group label {
+            margin-top: 0;
+            font-weight: normal;
+        }
 
-.submit-btn {
-  background: #2563eb;
-  color: white;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 18px;
-  width: auto;
-  margin-top: 15px;
-}
+        input[type="submit"] {
+            background: #2563eb;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 18px;
+            width: auto;
+            margin-top: 15px;
+        }
 
-/* Футер - 100% ширины */
-.footer {
-  background: #1e40af;
-  color: white;
-  text-align: center;
-  padding: 20px 15px;
-  margin-top: auto;
-  width: 100%;
-}
+        input[type="submit"]:hover {
+            background: #1e3a8a;
+        }
+        
+        /* Футер */
+        footer {
+            background: #1e40af;
+            color: white;
+            text-align: center;
+            padding: 20px 15px;
+            margin-top: auto;
+        }
 
-/* Mobile First: Изменение порядка с помощью Flex Box order */
-.mobile-order {
-  display: flex;
-  flex-direction: column;
-}
+        /* Mobile First: Grid layout */
+        .mobile-order {
+            display: grid;
+            grid-template-areas: 
+                "table"
+                "links"
+                "form";
+            gap: 20px;
+        }
 
-/* В HTML потоке ссылки идут перед таблицей, но на мобильных меняем порядок */
-.links-section {
-  order: 2; /* Ссылки будут вторыми */
-}
+        .table-section {
+            grid-area: table;
+        }
 
-.table-section {
-  order: 1; /* Таблица будет первой */
-}
+        .links-section {
+            grid-area: links;
+        }
 
-.form-section {
-  order: 3; /* Форма остается третьей */
-}
+        .form-section {
+            grid-area: form;
+        }
 
-/* Медиа-запросы для планшетов и десктопов (Mobile First) */
-@media (min-width: 768px) {
-  /* Планшетная версия */
-  .header {
-    padding: 20px;
-  }
-  
-  .logo {
-    font-size: 28px;
-  }
-  
-  .site-name {
-    font-size: 22px;
-  }
-  
-  /* Навигация - горизонтальное меню */
-  .nav-list {
-    flex-direction: row;
-    justify-content: center;
-  }
-  
-  .nav-list li {
-    border-bottom: none;
-    width: auto;
-  }
-  
-  .nav-list a {
-    padding: 15px 20px;
-    width: auto;
-  }
-  
-  .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 25px auto;
-    padding: 20px;
-  }
-  
-  section {
-    padding: 20px;
-    margin-bottom: 30px;
-  }
-  
-  h2 {
-    border-left: 6px solid #2563eb;
-  }
-  
-  th, td {
-    padding: 12px;
-  }
-  
-  form input, form select, form textarea {
-    max-width: 400px;
-  }
-  
-  /* Возвращаем исходный порядок элементов для планшетов и десктопов */
-  .mobile-order {
-    display: block;
-  }
-  
-  .links-section,
-  .table-section,
-  .form-section {
-    order: 0; /* Сбрасываем order */
-  }
-  
-  .links-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-  }
-  
-  .links-list li {
-    margin: 0;
-    padding: 15px;
-    background: #f8fafc;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-  }
-}
+        /* Медиа-запросы для планшетов */
+        @media (min-width: 768px) {
+            .container {
+                width: 90%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
 
-@media (min-width: 1024px) {
-  /* Десктопная версия */
-  .links-list {
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  }
-  
-  /* Добавляем тени для лучшего визуального разделения */
-  section {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-  
-  .nav-list a:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-  
-  .links-list a:hover {
-    color: #1e3a8a;
-    text-decoration: underline;
-  }
-  
-  .links-list img:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border-color: #2563eb;
-  }
-  
-  .submit-btn:hover {
-    background: #1e3a8a;
-  }
-}
+            /* Горизонтальная навигация */
+            nav ul {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            nav li {
+                border-bottom: none;
+            }
+
+            nav a {
+                padding: 15px 20px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            /* Grid layout для планшетов */
+            .mobile-order {
+                grid-template-areas: 
+                    "links links"
+                    "table form";
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            .links-list {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+            }
+
+            .links-list li {
+                margin: 0;
+                padding: 15px;
+                background: #f8fafc;
+                border-radius: 8px;
+                border: 1px solid #e2e8f0;
+            }
+        }
+
+        /* Медиа-запросы для десктопов */
+        @media (min-width: 1024px) {
+            .mobile-order {
+                grid-template-areas: 
+                    "links links links"
+                    "table table form";
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 30px;
+            }
+
+            .links-list {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+
+            form input, form select, form textarea {
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!-- Шапка -->
+<header>
+    <div class="logo">Лого</div>
+    <div class="site-name">Автомобильный каталог</div>
+</header>
+
+<!-- Навигация -->
+<nav>
+    <ul>
+        <li><a href="#main">Главная</a></li>
+        <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#table">Сравнение</a></li>
+        <li><a href="#form">Обратная связь</a></li>
+    </ul>
+</nav>
+
+<!-- Контент -->
+<div class="container">
+    <main class="mobile-order">
+        <!-- Секция ссылок -->
+        <section id="links" class="links-section">
+            <h2>Полезные ссылки</h2>
+            <ul class="links-list">
+                <li><a href="http://www.kubsu.ru/" target="_blank">Абсолютная гиперссылка на КубГУ</a></li>
+                <li><a href="https://www.kubsu.ru/" target="_blank">Абсолютная гиперссылка на КубГУ в протоколе https</a></li>
+                <li>
+                    <a href="https://www.kubsu.ru" target="_blank">
+                        <img src="bmw.jpg" alt="BMW автомобиль" width="300" height="200" 
+                             onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200/1e40af/ffffff?text=BMW+X5';">
+                    </a>
+                </li>
+                <li><a href="#form">Сокращенная ссылка на форму</a></li>
+                <li><a href="#">Ссылка на главную страницу</a></li>
+                <li><a href="#table">Ссылка на таблицу</a></li>
+                <li><a href="https://www.kubsu.ru/ru/user/password" target="_blank">Ссылка с параметрами</a></li>
+                <li><a href="https://kubsu.ru/node/44?id=185" target="_blank">Ссылка с id</a></li>
+                <li><a href="https://www.kubsu.ru/ru/studlife" target="_blank">Страница в каталоге</a></li>
+                <li><a href="https://kubsu.ru/ru/education" target="_blank">Страница в каталоге</a></li>
+                <li class="image-map-container">
+                    <img src="mers.jpg" width="600" usemap="#image-map" alt="Mercedes автомобиль"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/1e3a8a/ffffff?text=Mercedes-Benz';">
+                    <map name="image-map">
+                        <area target="_blank" href="https://www.kubsu.ru/ru/sveden" coords="29,36,305,320" shape="rect">
+                        <area target="_blank" href="https://www.kubsu.ru/ru/node/21" coords="453,176,126" shape="circle">
+                    </map>
+                </li>
+                <li><a href="">Ссылка с пустым href</a></li>
+                <li><a>Ссылка без href</a></li>
+                <li><a href="https://site.com" rel="nofollow" target="_blank">nofollow ссылка</a></li>
+                <li>
+                    <ol>
+                        <li><a href="https://www.kubsu.ru/ru" target="_blank">КубГУ</a></li>
+                        <li><a href="https://www.kubsu.ru/ru/abitur" target="_blank">Абитуриентам</a></li>
+                        <li><a href="https://www.kubsu.ru/ru/education" target="_blank">Образование</a></li>
+                    </ol>
+                </li>
+                <li><a href="ftp://ftp.kubsu.ru/documents/price_list.pdf" target="_blank">FTP ссылка</a></li>
+            </ul>
+        </section>
+
+        <!-- Секция таблицы -->
+        <section id="table" class="table-section">
+            <h2>Сравнение автомобилей</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Марка машины</th>
+                            <th>Класс</th>
+                            <th>Модель</th>
+                            <th>Страна производства</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Toyota</td><td>Седан</td><td>Camry</td><td>Япония</td></tr>
+                        <tr><td>2</td><td>Volkswagen</td><td>Хэтчбек</td><td>Golf</td><td>Германия</td></tr>
+                        <tr><td>3</td><td>Ford</td><td>Внедорожник</td><td>Explorer</td><td>США</td></tr>
+                        <tr><td>4</td><td>Hyundai</td><td>Кроссовер</td><td>Tucson</td><td>Южная Корея</td></tr>
+                        <tr><td>5</td><td>BMW</td><td>Премиум</td><td>X5</td><td>Германия</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Секция формы -->
+        <section id="form" class="form-section">
+            <h2>Форма обратной связи</h2>
+            <form action="/submit_form" method="post">
+                <label for="fio">ФИО:</label>
+                <input required type="text" id="fio" name="fio" placeholder="Введите ваше полное имя">
+
+                <label for="phone">Телефон:</label>
+                <input required type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX">
+
+                <label for="email">Email:</label>
+                <input required type="email" id="email" name="email" placeholder="example@mail.ru">
+
+                <label for="dob">Дата рождения:</label>
+                <input required type="date" id="dob" name="dob">
+
+                <label>Пол:</label>
+                <div class="radio-group">
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Мужчина</label>
+                </div>
+                <div class="radio-group">
+                    <input required type="radio" id="female" name="gender" value="female">
+                    <label for="female">Женщина</label>
+                </div>
+
+                <label for="languages">Любимый язык программирования:</label>
+                <select id="languages" name="languages" multiple>
+                    <option value="Pascal">Pascal</option>
+                    <option value="C">C</option>
+                    <option value="C++">C++</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="Haskell">Haskell</option>
+                    <option value="Clojure">Clojure</option>
+                    <option value="Prolog">Prolog</option>
+                    <option value="Scala">Scala</option>
+                </select>
+
+                <label for="bio">Биография:</label>
+                <textarea id="bio" name="bio" placeholder="Расскажите о себе"></textarea>
+
+                <div class="checkbox-group">
+                    <input required type="checkbox" id="contract" name="contract">
+                    <label for="contract">С контрактом ознакомлен(а)</label>
+                </div>
+
+                <input type="submit" value="Сохранить">
+            </form>
+        </section>
+    </main>
+</div>
+
+<!-- Футер -->
+<footer>
+    <div class="footer-content">
+        <p>© 2025 Автомобильный каталог. Все права защищены.</p>
+        <div class="footer-contacts">
+            Контакты: example@example.com | +7 (XXX) XXX-XX-XX
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.addEventListener('error', function() {
+                if (this.src.includes('bmw.jpg')) {
+                    this.src = 'https://via.placeholder.com/300x200/1e40af/ffffff?text=BMW+X5';
+                } else if (this.src.includes('mers.jpg')) {
+                    this.src = 'https://via.placeholder.com/600x400/1e3a8a/ffffff?text=Mercedes-Benz';
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
