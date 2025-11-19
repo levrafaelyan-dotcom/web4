@@ -1,392 +1,346 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Автомобильный каталог</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Custom Mobile First стили */
-        body {
-            font-family: Arial, sans-serif;
-            background: #f8f9fa;
-            color: #222;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .custom-header {
-            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
-        }
-        
-        .logo {
-            background: white;
-            color: #1e40af;
-            font-weight: bold;
-            border-radius: 4px;
-        }
-        
-        .custom-nav {
-            background: #1e3a8a;
-        }
-        
-        .nav-link {
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-        }
-        
-        .section-card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border: none;
-        }
-        
-        .section-title {
-            border-left: 4px solid #2563eb;
-            color: #1e3a8a;
-            font-weight: 600;
-        }
-        
-        .table-responsive table {
-            min-width: 600px;
-        }
-        
-        .table thead {
-            background: #1e40af;
-            color: white;
-        }
-        
-        .table tbody tr:nth-child(even) {
-            background: #f8f9fa;
-        }
-        
-        .links-grid {
-            display: grid;
-            gap: 1rem;
-        }
-        
-        .link-item {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .link-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .custom-img {
-            border-radius: 8px;
-            border: 2px solid #e9ecef;
-            transition: all 0.3s ease;
-            background: #f8f9fa;
-            min-height: 150px;
-            object-fit: cover;
-        }
-        
-        .custom-img:hover {
-            transform: scale(1.02);
-            border-color: #2563eb;
-        }
-        
-        .image-map-container {
-            overflow-x: auto;
-        }
-        
-        .form-section {
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-        
-        .btn-custom {
-            background: #2563eb;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-custom:hover {
-            background: #1e3a8a;
-            color: white;
-        }
-        
-        .custom-footer {
-            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
-            margin-top: auto;
-        }
-        
-        /* Mobile First - базовые стили для мобильных */
-        @media (max-width: 767.98px) {
-            .links-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Tablet */
-        @media (min-width: 768px) and (max-width: 991.98px) {
-            .links-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        /* Desktop */
-        @media (min-width: 992px) {
-            .links-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-    </style>
-</head>
+/* Mobile First стили */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-<body>
-<!-- Header -->
-<header class="custom-header text-white py-3">
-    <div class="container">
-        <div class="d-flex align-items-center">
-            <div class="logo px-3 py-2 me-3">Лого</div>
-            <h1 class="h4 mb-0">Автомобильный каталог</h1>
-        </div>
-    </div>
-</header>
+.app {
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.6;
+}
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg custom-nav navbar-dark">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav w-100 justify-content-center">
-                <li class="nav-item mx-2">
-                    <a class="nav-link text-white py-2 px-3" href="#main">Главная</a>
-                </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link text-white py-2 px-3" href="#catalog">Каталог</a>
-                </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link text-white py-2 px-3" href="#table">Сравнение</a>
-                </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link text-white py-2 px-3" href="#form">Обратная связь</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+/* Шапка - 100% ширины */
+.header {
+  background: #1e40af;
+  color: white;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
 
-<!-- Main Content -->
-<main class="container my-4 flex-grow-1">
-    <div class="row g-4">
-        <!-- Таблица - занимает всю ширину -->
-        <section id="table" class="col-12">
-            <div class="section-card p-4">
-                <h2 class="section-title ps-3 mb-4">Сравнение автомобилей</h2>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover">
-                        <thead class="table-dark">
-                            <tr>
-                                <th class="text-center">№</th>
-                                <th class="text-center">Марка машины</th>
-                                <th class="text-center">Класс</th>
-                                <th class="text-center">Модель</th>
-                                <th class="text-center">Страна производства</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td class="text-center">1</td><td>Toyota</td><td>Седан</td><td>Camry</td><td>Япония</td></tr>
-                            <tr><td class="text-center">2</td><td>Volkswagen</td><td>Хэтчбек</td><td>Golf</td><td>Германия</td></tr>
-                            <tr><td class="text-center">3</td><td>Ford</td><td>Внедорожник</td><td>Explorer</td><td>США</td></tr>
-                            <tr><td class="text-center">4</td><td>Hyundai</td><td>Кроссовер</td><td>Tucson</td><td>Южная Корея</td></tr>
-                            <tr><td class="text-center">5</td><td>BMW</td><td>Премиум</td><td>X5</td><td>Германия</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 10px;
+  background: white;
+  color: #1e40af;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
 
-        <!-- Ссылки - занимает всю ширину под таблицей -->
-        <section id="links" class="col-12">
-            <div class="section-card p-4">
-                <h2 class="section-title ps-3 mb-4">Полезные ссылки</h2>
-                <div class="links-grid">
-                    <div class="link-item p-3">
-                        <a href="http://www.kubsu.ru/" class="text-decoration-none" target="_blank">Абсолютная гиперссылка на КубГУ</a>
-                    </div>
-                    <div class="link-item p-3">
-                        <a href="https://www.kubsu.ru/" class="text-decoration-none" target="_blank">Абсолютная гиперссылка на КубГУ</a>
-                    </div>
-                    <div class="link-item p-3">
-                        <a href="https://www.kubsu.ru" target="_blank">
-                            <img src="bmw.jpg" alt="BMW автомобиль" class="custom-img w-100" 
-                                 onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200/1e40af/ffffff?text=BMW+X5'">
-                        </a>
-                    </div>
-                    <div class="link-item p-3">
-                        <a href="#form" class="text-decoration-none">Сокращенная ссылка на форму</a>
-                    </div>
-                    <div class="link-item p-3">
-                        <a href="#top" class="text-decoration-none">Ссылка на главную страницу</a>
-                    </div>
-                    <div class="link-item p-3">
-                        <a href="#table" class="text-decoration-none">Ссылка на таблицу</a>
-                    </div>
-                    <div class="link-item p-3">
-                        <a href="https://www.kubsu.ru/ru/user/password" class="text-decoration-none" target="_blank">Ссылка с параметрами</a>
-                    </div>
-                    <div class="link-item p-3">
-                        <a href="https://kubsu.ru/node/44?id=185" class="text-decoration-none" target="_blank">Ссылка с id</a>
-                    </div>
-                    <div class="link-item p-3">
-                        <a href="https://www.kubsu.ru/ru/studlife" class="text-decoration-none" target="_blank">Страница в каталоге</a>
-                    </div>
-                    <div class="link-item p-3">
-                        <a href="https://kubsu.ru/ru/education" class="text-decoration-none" target="_blank">Страница в каталоге</a>
-                    </div>
-                    <div class="link-item p-3 image-map-container">
-                        <img src="mers.jpg" class="custom-img w-100" usemap="#image-map" alt="Mercedes автомобиль"
-                             onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/1e3a8a/ffffff?text=Mercedes-Benz'">
-                        <map name="image-map">
-                            <area target="_blank" href="https://www.kubsu.ru/ru/sveden" coords="29,36,305,320" shape="rect">
-                            <area target="_blank" href="https://www.kubsu.ru/ru/node-21" coords="453,176,126" shape="circle">
-                        </map>
-                    </div>
-                    <div class="link-item p-3">
-                        <a href="" class="text-decoration-none">Ссылка с пустым href</a>
-                    </div>
-                    <div class="link-item p-3">
-                        <a class="text-decoration-none">Ссылка без href</a>
-                    </div>
-                    <div class="link-item p-3">
-                        <a href="https://site.com" rel="nofollow" class="text-decoration-none" target="_blank">nofollow ссылка</a>
-                    </div>
-                    <div class="link-item p-3">
-                        <ol class="mb-0">
-                            <li class="mb-1"><a href="https://www.kubsu.ru/ru" class="text-decoration-none" target="_blank">КубГУ</a></li>
-                            <li class="mb-1"><a href="https://www.kubsu.ru/ru/abitur" class="text-decoration-none" target="_blank">Абитуриентам</a></li>
-                            <li><a href="https://www.kubsu.ru/ru/education" class="text-decoration-none" target="_blank">Образование</a></li>
-                        </ol>
-                    </div>
-                    <div class="link-item p-3">
-                        <a href="ftp://ftp.kubsu.ru/documents/price_list.pdf" class="text-decoration-none" target="_blank">FTP ссылка</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+.site-name {
+  font-size: 18px;
+  font-weight: bold;
+}
 
-        <!-- Форма - занимает всю ширину под ссылками -->
-        <section id="form" class="col-12">
-            <div class="section-card p-4">
-                <h2 class="section-title ps-3 mb-4">Форма обратной связи</h2>
-                <div class="form-section p-4">
-                    <form action="/submit_form" method="post">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="fio" class="form-label fw-bold">ФИО:</label>
-                                <input type="text" class="form-control" id="fio" name="fio" placeholder="Введите ваше полное имя" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="phone" class="form-label fw-bold">Телефон:</label>
-                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="email" class="form-label fw-bold">Email:</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.ru" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="dob" class="form-label fw-bold">Дата рождения:</label>
-                                <input type="date" class="form-control" id="dob" name="dob" required>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Пол:</label>
-                            <div class="d-flex gap-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" id="male" name="gender" value="male">
-                                    <label class="form-check-label" for="male">Мужчина</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" id="female" name="gender" value="female" required>
-                                    <label class="form-check-label" for="female">Женщина</label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="languages" class="form-label fw-bold">Любимый язык программирования:</label>
-                            <select class="form-select" id="languages" name="languages" multiple size="4">
-                                <option value="Pascal">Pascal</option>
-                                <option value="C">C</option>
-                                <option value="C++">C++</option>
-                                <option value="JavaScript">JavaScript</option>
-                                <option value="PHP">PHP</option>
-                                <option value="Python">Python</option>
-                                <option value="Java">Java</option>
-                                <option value="Haskell">Haskell</option>
-                                <option value="Clojure">Clojure</option>
-                                <option value="Prolog">Prolog</option>
-                                <option value="Scala">Scala</option>
-                            </select>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="bio" class="form-label fw-bold">Биография:</label>
-                            <textarea class="form-control" id="bio" name="bio" rows="4" placeholder="Расскажите о себе"></textarea>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="contract" name="contract" required>
-                                <label class="form-check-label" for="contract">С контрактом ознакомлен (а):</label>
-                            </div>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-custom px-4 py-2">Сохранить</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </div>
-</main>
+/* Навигация - вертикальный список на мобильных */
+.nav {
+  background: #1e3a8a;
+  width: 100%;
+}
 
-<!-- Footer -->
-<footer class="custom-footer text-white py-4">
-    <div class="container">
-        <div class="text-center">
-            <p class="mb-2">© 2025 Автомобильный каталог. Все права защищены.</p>
-            <p class="mb-0 small opacity-75">Контакты: example@example.com | +7 (XXX) XXX-XX-XX</p>
-        </div>
-    </div>
-</footer>
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
-<!-- Bootstrap 5 JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+.nav-list li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
 
-<script>
-    // Функция для обработки ошибок загрузки изображений
-    document.addEventListener('DOMContentLoaded', function() {
-        const images = document.querySelectorAll('img');
-        images.forEach(img => {
-            img.addEventListener('error', function() {
-                if (this.src.includes('bmw.jpg')) {
-                    this.src = 'https://via.placeholder.com/300x200/1e40af/ffffff?text=BMW+X5';
-                } else if (this.src.includes('mers.jpg')) {
-                    this.src = 'https://via.placeholder.com/600x400/1e3a8a/ffffff?text=Mercedes-Benz';
-                }
-            });
-        });
-    });
-</script>
-</body>
-</html>
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 12px 15px;
+  width: 100%;
+}
+
+/* Контент - 100% ширины */
+.container {
+  flex: 1;
+  padding: 15px;
+  width: 100%;
+}
+
+section {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+h2 {
+  border-left: 4px solid #2563eb;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  color: #1e3a8a;
+}
+
+/* Таблица */
+.table-container {
+  overflow-x: auto;
+  margin-top: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+thead {
+  background: #1e40af;
+  color: white;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background: #f1f5f9;
+}
+
+/* Список ссылок */
+.links-list {
+  list-style: none;
+}
+
+.links-list li {
+  margin: 12px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.links-list li:last-child {
+  border-bottom: none;
+}
+
+.links-list a {
+  color: #1e40af;
+  text-decoration: none;
+}
+
+.links-list img {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px 0;
+  border: 2px solid #e2e8f0;
+}
+
+.image-map-container {
+  overflow-x: auto;
+}
+
+.image-map-container img {
+  max-width: none;
+}
+
+/* Форма */
+form {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  font-size: 16px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  width: auto;
+  margin-right: 5px;
+}
+
+.radio-group, .checkbox-group {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.radio-group label, .checkbox-group label {
+  margin-top: 0;
+  font-weight: normal;
+}
+
+.submit-btn {
+  background: #2563eb;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  width: auto;
+  margin-top: 15px;
+}
+
+/* Футер - 100% ширины */
+.footer {
+  background: #1e40af;
+  color: white;
+  text-align: center;
+  padding: 20px 15px;
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Mobile First: Изменение порядка с помощью Flex Box order */
+.mobile-order {
+  display: flex;
+  flex-direction: column;
+}
+
+/* В HTML потоке ссылки идут перед таблицей, но на мобильных меняем порядок */
+.links-section {
+  order: 2; /* Ссылки будут вторыми */
+}
+
+.table-section {
+  order: 1; /* Таблица будет первой */
+}
+
+.form-section {
+  order: 3; /* Форма остается третьей */
+}
+
+/* Медиа-запросы для планшетов и десктопов (Mobile First) */
+@media (min-width: 768px) {
+  /* Планшетная версия */
+  .header {
+    padding: 20px;
+  }
+  
+  .logo {
+    font-size: 28px;
+  }
+  
+  .site-name {
+    font-size: 22px;
+  }
+  
+  /* Навигация - горизонтальное меню */
+  .nav-list {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .nav-list li {
+    border-bottom: none;
+    width: auto;
+  }
+  
+  .nav-list a {
+    padding: 15px 20px;
+    width: auto;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 25px auto;
+    padding: 20px;
+  }
+  
+  section {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  h2 {
+    border-left: 6px solid #2563eb;
+  }
+  
+  th, td {
+    padding: 12px;
+  }
+  
+  form input, form select, form textarea {
+    max-width: 400px;
+  }
+  
+  /* Возвращаем исходный порядок элементов для планшетов и десктопов */
+  .mobile-order {
+    display: block;
+  }
+  
+  .links-section,
+  .table-section,
+  .form-section {
+    order: 0; /* Сбрасываем order */
+  }
+  
+  .links-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .links-list li {
+    margin: 0;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Десктопная версия */
+  .links-list {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+  
+  /* Добавляем тени для лучшего визуального разделения */
+  section {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .nav-list a:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .links-list a:hover {
+    color: #1e3a8a;
+    text-decoration: underline;
+  }
+  
+  .links-list img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-color: #2563eb;
+  }
+  
+  .submit-btn:hover {
+    background: #1e3a8a;
+  }
+}
